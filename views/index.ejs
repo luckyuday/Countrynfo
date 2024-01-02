@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.png" />
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lilita+One&family=Montserrat:wght@500&family=Oswald:wght@700&family=Work+Sans&display=swap" rel="stylesheet">
+    <title>Countrynfo</title>
+  </head>
+  <body>
+    <div class="headers">
+    <h1 id="brand-heading">CountrYnfo</h1>
+    <h2 id="brand-subheading">Best site to know about your desired country</h2></div>
+    <% if(locals.data){%>
+      <div class="country_info">
+        <img src="<%= data.flags.svg %>" alt="<%= data.flags.alt %>" id="country_image">
+        <div class="info_block">
+          <p class="info_content"><span class="info_heading">Official Name: </span> <%= data.name.official %> </p>
+          <p class="info_content"><span class="info_heading">Commonly Known as: </span> <%= data.name.common %></p>
+          <p class="info_content"><span class="info_heading">Capital: </span> <%let count=1; for(x in data.capital){ %><%=data.capital[x]%><% if(count<data.capital.length){%>, <%}count++;}%></p>
+          <p class="info_content"><span class="info_heading">Independent </span>: <% if(data.unMember===true){%>Yes<%} else{%>No<% }%></p>
+          <p class="info_content"><span class="info_heading">Currency: </span> <% count=1; for(x in data.currencies){%><%=data.currencies[x].name%> (<%= data.currencies[x].symbol%>)<% if(count<(Object.keys(data.currencies).length)){%>, <%}count++;}%></p>
+          <p class="info_content"><span class="info_heading">Population: </span> <%=data.population%></p>
+          <p class="info_content"><span class="info_heading">Language: </span> <% count=1; for(x in data.languages){%><%=data.languages[x]%><% if(count<(Object.keys(data.languages).length)){%>, <%}count++;}%></p>
+          <p class="info_content"><span class="info_heading">Timezone: </span> <% for(x in data.timezones){%><%=data.timezones[x]%><%if(x<(data.timezones).length-1){%>, <%}}%></p>
+          <p class="info_content"><span class="info_heading">Continent: </span> <% for(x in data.continents){%><%=data.continents[x]%><%if(x<(data.continents).length-1){%>, <%}}%> </p>
+        </div>
+      </div>
+      <% } %>
+    <form method="post" action="/result" class="country_form">
+      <h2>Enter the name of the country you want to know about :)</h2>
+      <div><input type="text" name="countryname" id="countryname" />
+      <button type="submit"><img src="./entericon.svg"/></button></div>
+    </form>
+    
+  </body>
+</html>

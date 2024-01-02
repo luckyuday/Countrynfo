@@ -1,0 +1,151 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    position: relative;
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    font-family: Work Sans, sans-serif;
+    background-color: #92C7CF;
+    padding: 20px;
+    min-height:100vh;
+    justify-content: center;
+    gap: 5vh;
+}
+
+.headers{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#brand-heading{
+    font-family: Oswald, sans-serif;
+    font-size: 90px;
+    padding:5px;
+    word-wrap: break-word;
+    color: transparent;
+    background-clip: text;
+    background: linear-gradient(to left top, #CBE4DE, #0E8388,#2E4F4F);
+    -webkit-background-clip: text;
+}
+
+#brand-subheading{
+    font-family: Lilita one, serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    padding: 10px;
+    color: #5C5470;
+}
+
+.country_form{
+    display:flex;
+    flex-direction: column;
+    
+    margin: 0 auto;
+    gap: 2vh;
+}
+
+.country_form > *{
+    margin:10px;
+}
+
+.country_form> h2{
+    font-size:30px;
+    color: #352F44;
+}
+
+.country_form > div{
+    display:flex;
+    margin: auto;
+    align-items: center;
+}
+
+.country_form > div>input{
+    border-style: solid;
+    padding: 10px;
+    border-radius: 10px;
+    background: none;
+    margin-right:25px;
+}
+
+input:focus{
+    outline:none;
+}
+
+.country_form >div> button{
+    width: 30px;
+    height: 30px;
+    border:0;
+    background: none;
+    overflow:none;
+    transition: all 1s;
+}
+
+.country_form > div> button:hover{
+    cursor: pointer;
+    border: #352F44;
+ }
+
+
+.country_form>div> button>img{
+    width:inherit;
+    height:inherit;    
+}
+
+.country_info{
+    display:flex;
+    gap: 50px;
+    align-items:center;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+#country_image{
+    width:300px;
+    object-fit: fill;
+    margin:auto;
+    border:#352F44;
+    border-style:solid;
+    border-radius:20px;
+}
+
+.info_block{
+    display:flex;
+    flex-direction:column;
+    max-width:500px;
+    gap:20px;
+}
+
+.info_heading{
+    font-weight: bold;
+}
+
+
+@media (max-width:580px)
+{
+    body{
+        font-size:12px;
+        min-height:100vh;
+    }
+    .country_info{
+        flex-direction: column;
+    }
+    #brand-heading{
+        font-size:45px;
+    }
+    #brand-subheading{
+        font-size:15px; 
+    }
+    .country_form> h2{
+        font-size:12px;
+    }
+    #country_image{
+        width:150px;
+    }
+}
+
